@@ -73,7 +73,7 @@ def run_alert(chat=None):
     chat_id = chat or 2033458470  
     bot = telegram.Bot(token='5039125354:AAFoVMBy_XAwmk2vlOTa-wyqafZ1n11J3es')
     
-    # Import data from our database
+    # Import data from our database. Decided create fifteen minutes data and create rolling average with 8 values
     data = Getch('''
     select t1.*, t2.messages, t2.msg_users, 
     avg(t1.feed_users) over w as avg_feed_users, avg(t1.likes) over w as avg_likes, avg(t1.views) over w as avg_views,
@@ -84,7 +84,7 @@ def run_alert(chat=None):
     uniqExact(user_id) as feed_users, countIf(user_id, action = 'like') as likes,
     countIf(user_id, action = 'view') as views, likes / views as CTR
     from simulator_20211220.feed_actions
-    where ts >= today() - 1 and  ts <= toStartOfFifteenMinutes(now()) 
+    where ts >= today() - 1 and  ts < toStartOfFifteenMinutes(now()) 
     group by ts
     order by ts
     ) t1
@@ -92,33 +92,38 @@ def run_alert(chat=None):
     (
     select count(user_id) as messages, uniqExact(user_id) as msg_users, toStartOfFifteenMinutes(time) as ts
     from simulator_20211220.message_actions
-    where ts >= today() - 1 and  ts <= toStartOfFifteenMinutes(now()) 
+    where ts >= today() - 1 and  ts < toStartOfFifteenMinutes(now()) 
     group by ts
     order by ts
     ) t2
     on t1.ts = t2.ts
     window w as (order by ts rows between 7 preceding and current row)
     ''').df
-    
+
+    # Check anomalies
     data_alert = check_anomaly(data)
     
     for i in range(0, len(data_alert)):
-        
+        # If anomaly = 1, then we will send message to our telegram chat
         if data_alert['al'].iloc[i] == 1:
+            # create variables
             metric = data_alert['metric'].iloc[i]
             current_value = data_alert['val'].iloc[i]
             diff = data_alert['dif'].iloc[i]
-
+            # create last variable 15 mins and last value at this time. I want to create red dot with current value on the plot
             last_hm = data['hm'].iloc[-1]
             last_value = data[metric].iloc[-1] 
-
+            # Remove data from previous day except last 4 ticks
             start_index = data[data['date'] == data['date'].max()].iloc[0].name - 4
             
+            # Create plot
             plt.figure(figsize=(15, 8))
             plt.plot()
             ax = sns.lineplot(data=data.loc[start_index:], x='hm', y=metric)
+            # Draw red dot for the current value
             plt.plot(last_hm, last_value, 'ro')
 
+            # this cycle is needed to discharge the X-axis coordinate signatures,
             for ind, label in enumerate(ax.get_xticklabels()):
                 if ind % 4 == 0:
                     label.set_visible(True)
@@ -128,18 +133,18 @@ def run_alert(chat=None):
                     ax.set(xlabel='time')
                     ax.set(ylabel='{}'.format(metric))
                     ax.set_title(metric+' ANOMALY')
-
+            # Create file object
             plot_object = io.BytesIO()
             plt.savefig(plot_object)
             plot_object.name = 'probe_plot.png'
             plot_object.seek(0)
 
             plt.close()
-
+            # create message for the alert
             msg = '''
             <b>Метрика {metric}</b>\nТекущее значение = {current_value:.2f}\nОтклонение от предыдущей средней скользящей 15 минут <b>{diff:.2%}</b>
             '''.format(metric=metric, current_value=current_value, diff=diff)
-
+            # send alert!
             bot.sendPhoto(chat_id=chat_id, photo=plot_object)
             bot.sendMessage(chat_id=chat_id, text=msg, parse_mode='HTML')
 
