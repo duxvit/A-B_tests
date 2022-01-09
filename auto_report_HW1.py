@@ -79,7 +79,7 @@ def test_report(chat=None):
     ctr = data['CTR'][2]
     msg = 'REPORT FOR '+ day + '           ' +' DAU:'+ str(dau) + ', Views:' + str(views) \
             + ', Likes:' +  str(likes) + ', CTR:' + str(ctr)
-    bot.sendMessage(chat_id=chat_id, text=msg)
+    bot.sendMessage(chat_id=chat_id, text=msg, parse_mode='HTML')
 
 
     data2 = data[data['action'] == 'like']
