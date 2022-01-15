@@ -114,7 +114,7 @@ def run_alert(chat=None):
             last_hm = data['hm'].iloc[-1]
             last_value = data[metric].iloc[-1] 
             # Remove data from previous day except last 4 ticks
-            start_index = data[data['date'] == data['date'].max()].iloc[0].name - 4
+            start_index = data[data['date'] == data['date'].max()].iloc[0].name
             
             # Create plot
             plt.figure(figsize=(15, 8))
