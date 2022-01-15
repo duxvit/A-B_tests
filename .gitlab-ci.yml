@@ -12,7 +12,7 @@ report_job_1:
         refs:
             - schedules
         variables:
-            - $SCHEDULE_TYPE == 'RUN_REPORT_1'
+            - $SCHEDULE_TYPE_1 == 'RUN_REPORT_1'
     script:
         - python auto_report_HW1.py
 
@@ -22,7 +22,7 @@ report_job_2:
         refs:
             - schedules
         variables:
-            - $SCHEDULE_TYPE == 'RUN_REPORT_2'
+            - $SCHEDULE_TYPE_2 == 'RUN_REPORT_2'
     script:
         - python auto_report_HW2.py
 
