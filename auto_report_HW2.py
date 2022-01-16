@@ -1,3 +1,6 @@
+### This file is for sending daily report from feed_actions and messages_actions
+### There will be 4 different plots : 1.New users (by os), 2.New users (by source), 3.New users (both services), 4. Active users
+
 #import libraries
 import pandas as pd
 import matplotlib.pyplot as plt
