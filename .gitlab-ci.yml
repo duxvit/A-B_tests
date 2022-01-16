@@ -34,6 +34,6 @@ alert_job:
         variables:
             - $SCHEDULE_TYPE == 'RUN_ALERT'
     script:
-        - python anomaly_detect.py
+        - python anomaly_detector.py
         
 
