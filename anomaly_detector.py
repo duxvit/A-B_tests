@@ -1,4 +1,4 @@
-# This python file only for news feed anomaly detection 
+# This python file is only for news feed anomaly detection 
 #import libraries
 import pandas as pd
 import matplotlib.pyplot as plt
