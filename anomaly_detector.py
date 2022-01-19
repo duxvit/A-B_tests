@@ -67,7 +67,7 @@ def run_alert(chat=None, data=None, data_2=None):
     
     # Telegram chat, where alerts will be sent
     chat_id_1 = chat or 2033458470  # my chat
-#     chat_id_2 = -674009613   # group chat
+    chat_id_2 = -674009613   # group chat
     
     bot = telegram.Bot(token='5039125354:AAFoVMBy_XAwmk2vlOTa-wyqafZ1n11J3es') # token of my bot
     
@@ -142,9 +142,9 @@ def run_alert(chat=None, data=None, data_2=None):
             '''.format(metric=metric, current_value=current_value, diff=diff)
             # send alert!
             bot.sendPhoto(chat_id=chat_id_1, photo=plot_object)
-    #         bot.sendPhoto(chat_id=chat_id_2, photo=plot_object)
+            bot.sendPhoto(chat_id=chat_id_2, photo=plot_object)
             bot.sendMessage(chat_id=chat_id_1, text=msg, parse_mode='HTML')
-    #         bot.sendMessage(chat_id=chat_id_1, text=msg, parse_mode='HTML')
+            bot.sendMessage(chat_id=chat_id_2, text=msg, parse_mode='HTML')
 
 
 try:
