@@ -148,7 +148,7 @@ def test_report_2(chat=None):
 
     #chat, where our messages will be sended
     chat_id_1 = 2033458470  # my chat
-    chat_id_2 = -674009613  # chat of the team
+    chat_id_2 = -674009613  # group chat 
     bot = telegram.Bot(token='5039125354:AAFoVMBy_XAwmk2vlOTa-wyqafZ1n11J3es') # token of my bot
 
     ### Create variables for our future report
@@ -206,7 +206,7 @@ def test_report_2(chat=None):
 
     # SEND the message to the chats
     bot.sendMessage(chat_id=chat_id_1, text=msg, parse_mode='HTML')
-    # bot.sendMessage(chat_id=chat_id_2, text=msg, parse_mode='HTML')
+    bot.sendMessage(chat_id=chat_id_2, text=msg, parse_mode='HTML')
 
     # create data frames for suitable building the charts
     new_feed_os_android = new_feed_os[new_feed_os['os'] == 'Android'] # only androids
@@ -244,7 +244,7 @@ def test_report_2(chat=None):
     plt.close()
 
     bot.sendPhoto(chat_id=chat_id_1, photo=plot_object)
-    # bot.sendPhoto(chat_id=chat_id_2, photo=plot_object)
+    bot.sendPhoto(chat_id=chat_id_2, photo=plot_object)
 try:
     test_report_2()
 except Exception as e:
