@@ -242,9 +242,9 @@ def test_report_2(chat=None):
     plot_object.name = '14_prev_days_plots.png'
     plot_object.seek(0)
     plt.close()
-
-    bot.sendPhoto(chat_id=chat_id_1, photo=plot_object)
     bot.sendPhoto(chat_id=chat_id_2, photo=plot_object)
+    bot.sendPhoto(chat_id=chat_id_1, photo=plot_object)
+    
 try:
     test_report_2()
 except Exception as e:
