@@ -100,8 +100,9 @@ def test_report(chat=None):
     plot_object.name = '7_prev_days_plots.png'
     plot_object.seek(0)
     plt.close()
-    bot.sendPhoto(chat_id=chat_id_1, photo=plot_object)
     bot.sendPhoto(chat_id=chat_id_2, photo=plot_object)
+    bot.sendPhoto(chat_id=chat_id_1, photo=plot_object)
+    
  
 
 try:
