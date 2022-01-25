@@ -7,7 +7,7 @@ from datetime import date
 import io
 import sys
 import os
-from CH import Getch
+
 
 def check_anomaly(data, a=3):
     data['std'] = data.feed_users.rolling(4, min_periods=0).std()
