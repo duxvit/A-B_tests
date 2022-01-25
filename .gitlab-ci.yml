@@ -1,0 +1,39 @@
+image: cr.yandex/crp742p3qacifd2hcon2/practice-da:latest
+
+stages:
+    - init
+    - alert
+    - report_1
+    - report_2
+
+report_job_1:
+    stage: report_1
+    only:
+        refs:
+            - schedules
+        variables:
+            - $SCHEDULE_TYPE_1 == 'RUN_REPORT_1'
+    script:
+        - python auto_report_HW1.py
+
+report_job_2:
+    stage: report_2
+    only:
+        refs:
+            - schedules
+        variables:
+            - $SCHEDULE_TYPE_2 == 'RUN_REPORT_2'
+    script:
+        - python auto_report_HW2.py
+
+alert_job:
+    stage: alert
+    only:
+        refs:
+            - schedules
+        variables:
+            - $SCHEDULE_TYPE == 'RUN_ALERT'
+    script:
+        - python anomaly_detector.py
+        
+

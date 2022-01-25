@@ -68,8 +68,7 @@ def test_report(chat=None):
         limit 16" 
         ).df
 
-    chat_id_1 = chat or 2033458470 # my chat
-    chat_id_2 = -674009613  # group chat 
+    chat_id = chat or 2033458470
     bot = telegram.Bot(token='5039125354:AAFoVMBy_XAwmk2vlOTa-wyqafZ1n11J3es')
 
 
@@ -80,8 +79,7 @@ def test_report(chat=None):
     ctr = data['CTR'][2]
     msg = 'REPORT FOR '+ day + '           ' +' DAU:'+ str(dau) + ', Views:' + str(views) \
             + ', Likes:' +  str(likes) + ', CTR:' + str(ctr)
-    bot.sendMessage(chat_id=chat_id_1, text=msg, parse_mode='HTML')
-    bot.sendMessage(chat_id=chat_id_2, text=msg, parse_mode='HTML')
+    bot.sendMessage(chat_id=chat_id, text=msg)
 
 
     data2 = data[data['action'] == 'like']
@@ -100,9 +98,7 @@ def test_report(chat=None):
     plot_object.name = '7_prev_days_plots.png'
     plot_object.seek(0)
     plt.close()
-    bot.sendPhoto(chat_id=chat_id_2, photo=plot_object)
-    bot.sendPhoto(chat_id=chat_id_1, photo=plot_object)
-    
+    bot.sendPhoto(chat_id=chat_id, photo=plot_object)
  
 
 try:
