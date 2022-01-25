@@ -69,7 +69,7 @@ def run_alert(chat=None, data=None, data_2=None):
     chat_id_1 = chat or 2033458470  # my chat
     chat_id_2 = -674009613   # group chat
     
-    bot = telegram.Bot(token='5039125354:AAFoVMBy_XAwmk2vlOTa-wyqafZ1n11J3es') # token of my bot
+    bot = telegram.Bot(token=os.environ.get("token")) # token of my bot
     
     if data is None: # check, if we have already had data from the start of function
         # Query for feed_users, likes, views, CTR and their averages and stds. Interval 7 days
