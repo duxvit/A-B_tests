@@ -1,4 +1,4 @@
-### This file is for sending daily report from feed_actions and messages_actions
+### This file is for sending daily report from feed_actions and messages_actions databases
 ### There will be 4 different plots : 1.New users (by os), 2.New users (by source), 3.New users (both services), 4. Active users
 
 #import libraries
@@ -59,7 +59,7 @@ def test_report_2(chat=None):
     having day < today() and day >= today() - 14
     ''').df
 
-    # Query for new users by days (news_feed, messages< both services)
+    # Query for new users by days (news_feed, messages, both services)
     new_users = Getch('''
     -- count total number of users who registred in feeds news, messages, and both services
     select reg_day, users_feed, users_msgs, users_both, 
@@ -149,7 +149,7 @@ def test_report_2(chat=None):
     #chat, where our messages will be sended
     chat_id_1 = 2033458470  # my chat
     chat_id_2 = -674009613  # group chat 
-    bot = telegram.Bot(token='5039125354:AAFoVMBy_XAwmk2vlOTa-wyqafZ1n11J3es') # token of my bot
+    bot = telegram.Bot(token='TOKEN') # secret token of my bot
 
     ### Create variables for our future report
     #report day

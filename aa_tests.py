@@ -1,4 +1,4 @@
-### class to conduct tha A/A tests
+### class to conduct the A/A tests
 
 # import libriaries
 import numpy as np
