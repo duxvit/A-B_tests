@@ -7,8 +7,8 @@ class Getch:
     def __init__(self, query, db='simulator'):
         self.connection = {
             'host': 'https://clickhouse.lab.karpov.courses',
-            'password': 'password',  # password was changed
-            'user': 'user',  # username was changed
+            'password': 'dpo_python_2020',  # password was changed
+            'user': 'student',  # username was changed
             'database': db,
         }
         self.query = query
