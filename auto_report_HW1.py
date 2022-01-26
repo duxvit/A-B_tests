@@ -1,26 +1,5 @@
 import pandahouse
-
-
-class Getch:
-    def __init__(self, query, db='simulator'):
-        self.connection = {
-            'host': 'https://clickhouse.lab.karpov.courses',
-            'password': 'dpo_python_2020',
-            'user': 'student',
-            'database': db,
-        }
-        self.query = query
-        self.getchdf
-
-    @property
-    def getchdf(self):
-        try:
-            self.df = pandahouse.read_clickhouse(self.query, connection=self.connection)
-
-        except Exception as err:
-            print("\033[31m {}".format(err))
-            exit(0)
-            
+import Getch  # this function is for connecting with db and eporting data to Jupiter Notebook
 import telegram
 import numpy as np
 import matplotlib.pyplot as plt
@@ -33,7 +12,10 @@ import datetime
 
 sns.set()
 
+# this function is for sending report to telegram chat with key metrics (DAU, views, likes, CTR) and plotting these metrics.
 def test_report(chat=None):
+    
+    # function for query SQL from db
     data = Getch(
         "select t1_t2.day, t1_t2.users as num_actions, t1_t2.action, t1_t2.CTR, t3.users as daily_users \
         from \
@@ -70,7 +52,7 @@ def test_report(chat=None):
 
     chat_id_1 = chat or 2033458470 # my chat
     chat_id_2 = -674009613  # group chat 
-    bot = telegram.Bot(token='5039125354:AAFoVMBy_XAwmk2vlOTa-wyqafZ1n11J3es')
+    bot = telegram.Bot(token='TOKEN')  # secret token 
 
 
     day = data['day'][2].strftime("%d/%m/%Y")
