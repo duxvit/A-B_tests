@@ -7,6 +7,7 @@ In this repo I analyzed the syntetic start-up social network, wich has <b>messen
     - Feed news dashboard (DAU, WAU, MAU, likes, views, CTR, Retention, Weekly audience,location, operational system, source of the trafic).
     - Operational data dashboard (active users today).
     - Crossing news feed and messenger dashboard.
+    files:news_feed.jpg, news_feed_operational_data.jpg, news_feed_messages.jpg
     
     
 ### 2. Automatization of the daily reporting:
