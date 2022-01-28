@@ -37,9 +37,9 @@ ___
 
 ## Details
 There were two databases:
-1. news_feed db
-2. messenger db
+1. feed_news db  – all activity in news feed
+2. messenger db  – all activity in the messenger 
 
-The ![news_feed db](news_feed_operational_data.jpg)
+**News feed database**![news_feed db](feed_actions)
 
 
