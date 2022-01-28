@@ -42,17 +42,17 @@ There were two databases:
 
 **News feed database**![news_feed db](feed_actions.png)
 
-'user_id' - unique number of the user.    
-'post_id' - unique number of the post.    
-'action'  - action, user did, when he was watching the post.  It could be *view* or *like*.  
-'time'    - time, user did action.  
-'gender'  - gender of the user. It could be *0 - female*, *1 - male*.  
-'age'     - age of the user.  
-'country' - country of the user.  
-'city'    - city of the user.  
-'os'      - operational system of the mobile phone of the user. It could be *iOS* or *Android*.  
-'source'  - the source the user joined the news feed service. It could be *ads* or *organic*.  
-'exp_group' - Random splitting system for A/B tests. There are 5 groups from *0 to 5*.  
+`ser_id` - unique number of the user.    
+`post_id` - unique number of the post.    
+`action`  - action, user did, when he was watching the post.  It could be *view* or *like*.  
+`time`    - time, user did action.  
+`gender`  - gender of the user. It could be *0 - female*, *1 - male*.  
+`age`     - age of the user.  
+`country` - country of the user.  
+`city`    - city of the user.  
+`os`      - operational system of the mobile phone of the user. It could be *iOS* or *Android*.  
+`source`  - the source the user joined the news feed service. It could be *ads* or *organic*.  
+`exp_group` - Random splitting system for A/B tests. There are 5 groups from *0 to 5*.  
 
 
 
