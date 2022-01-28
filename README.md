@@ -1,7 +1,7 @@
 # Analysis of the Social network
 
 In this repo I analyzed the syntetic start-up social network, wich has <b>messenger and feed news</b>.
-All work was did remotely in GitLab, JupiterHub, Superset, ClickHouse, Redash.
+All job was did remotely in GitLab, JupiterHub, Superset, ClickHouse, Redash.
 
 ## The main tasks were:
 ### 1. Create 3 dashboards in Superset : 
