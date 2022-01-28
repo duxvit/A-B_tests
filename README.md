@@ -28,8 +28,8 @@ file: anomaly_detector.py
 
 ### 4. A/B tests
     - Creating the splitting system for A/B tests.  
-    - A/A testing.   AA_test_3_4.ipynb
-    - Time and sample size for the A/B experiments. 
+    - A/A testing.  
+    - Required time and sample size for the A/B experiments. 
 files: AA_test_3_4.ipynb, AB_test_CTR_0_1-Copy1.ipynb, A_B_test_analysis.ipynb
     
     
