@@ -1,6 +1,7 @@
 # Analysis of the Social network
 
 In this repo I analyzed the syntetic start-up social network, wich has <b>messenger and feed news</b>.
+All work was did remotely in GitLab, JupiterHub, Superset, ClickHouse, Redash.
 
 ## The main tasks were:
 ### 1. Create 3 dashboards in Superset : 
@@ -30,4 +31,15 @@ In this repo I analyzed the syntetic start-up social network, wich has <b>messen
     - A/A testing.   AA_test_3_4.ipynb
     - Time and sample size for the A/B experiments. 
     files: AA_test_3_4.ipynb, AB_test_CTR_0_1-Copy1.ipynb, A_B_test_analysis.ipynb
+    
+    
+___
+
+## Details
+There were two databases:
+1. news_feed db
+2. messenger db
+
+The ![news_feed db](news_feed_operational_data.jpg)
+
 
