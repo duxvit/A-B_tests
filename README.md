@@ -8,7 +8,7 @@ All work was did remotely in GitLab, JupiterHub, Superset, ClickHouse, Redash.
     - Feed news dashboard (DAU, WAU, MAU, likes, views, CTR, Retention, Weekly audience,location, operational system, source of the trafic).
     - Operational data dashboard (active users today).
     - Crossing news feed and messenger dashboard.
-files:news_feed.jpg, news_feed_operational_data.jpg, news_feed_messages.jpg
+files: news_feed.jpg, news_feed_operational_data.jpg, news_feed_messages.jpg
     
     
 ### 2. Automatization of the daily reporting:
@@ -16,14 +16,14 @@ files:news_feed.jpg, news_feed_operational_data.jpg, news_feed_messages.jpg
     - Automatic report sending to the bot and creating schedule time to send message.  
     - Automatization in Gitlab CI/CD.
     - Storage the token of the bot in the secret.
-files:auto_report_HW1.py, auto_report_HW2.py
+files: auto_report_HW1.py, auto_report_HW2.py
 
 
 ### 3. Anomaly detection
     - Anomaly detection by statistical methods (sigma laws, IQR).
     - Creating auto-checking the anomalies scrypt.      
     - Sending the alert message to the chat in telegram in case of detection the anomaly.
-file:anomaly_detector.py
+file: anomaly_detector.py
 
 
 ### 4. A/B tests
