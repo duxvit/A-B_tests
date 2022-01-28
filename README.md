@@ -40,6 +40,6 @@ There were two databases:
 1. feed_news db  – all activity in news feed
 2. messenger db  – all activity in the messenger 
 
-**News feed database**![news_feed db](feed_actions)
+**News feed database**![news_feed db](feed_actions.png)
 
 
