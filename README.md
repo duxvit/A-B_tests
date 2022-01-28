@@ -40,7 +40,7 @@ There were two databases:
 1. feed_news db  – all activity in news feed
 2. messenger db  – all activity in the messenger 
 
-**News feed database**![news_feed db](feed_actions.png)
+**1. News feed database**![news_feed db](feed_actions.png)
 
 `user_id` - unique number of the user.    
 `post_id` - unique number of the post.    
@@ -54,7 +54,9 @@ There were two databases:
 `source`  - the source the user joined the news feed service. It could be *ads* or *organic*.  
 `exp_group` - Random splitting system for A/B tests. There are 5 groups from *0 to 5*.
 
-**Messenger database**![news_feed db](messenger.png)
+
+
+**2. Messenger database**![news_feed db](messenger.png)
 
 `user_id` - unique number of the user.  
 `reciever_id` - *user_id* whom was sent the message
